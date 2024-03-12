@@ -1,0 +1,85 @@
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Programmer: WAW
+'date: 5/15/17
+f.Intrinsic.Control.If(v.Caller.Hook,<>,11560,"OR",V.Caller.Switches,<>,"N")
+	f.Intrinsic.Control.End
+f.Intrinsic.Control.EndIf
+
+'open connection
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser, V.Ambient.PPass)
+
+'check territory
+f.Intrinsic.Control.CallSub(territory)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_SO_Territory.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'closing connection and ending program
+F.ODBC.Connection!conx.Close
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_SO_Territory.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+Program.Sub.Unload.End
+
+Program.Sub.Territory.Start
+F.Intrinsic.Control.SetErrorHandler("Territory_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.ssql.Declare(String)
+v.Local.ssalessql.Declare(String)
+v.Local.ssalesperson.Declare(string)
+
+'query the custom table for data
+f.Intrinsic.String.Build("Select * from GCG_4519_STATES where STATE LIKE '%{0}%'",v.Passed.000017,v.Local.ssql)
+F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sSql)
+f.Intrinsic.Control.If(v.ODBC.conx!rst.EOF,=,False)
+	'set the salesperson based on the state
+	v.Passed.000030.Set(v.ODBC.conx!rst.FieldValTrim!SALESPERSON)
+f.Intrinsic.Control.endif	
+
+f.ODBC.conx!rst.Close
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Territory_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_SO_Territory.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Territory.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4519_SO_Territory.g2u$}$WAW$}$5/15/2017 2:45:00 PM$}$False
+Program.Sub.Comments.End
