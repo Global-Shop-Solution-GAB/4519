@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SearchOptions>EntireScope FindTextAtCursor FindSelectedText CycledSearch</SearchOptions>
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>188</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>188</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>188</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Gui.Form..Create</string>
+        <string>Gui.Form..Caption("Sales Territory")</string>
+        <string>Gui.Form..Size(7635,4050)</string>
+        <string>Gui.Form..MinX(0)</string>
+        <string>Gui.Form..MinY(0)</string>
+        <string>Gui.Form..Position(0,0)</string>
+        <string>Gui.Form..BackColor(-2147483633)</string>
+        <string>Gui.Form..MousePointer(0)</string>
+        <string>Gui.Form..Sizeable(False)</string>
+        <string>Gui.Form..Event(UnLoad,Unload)</string>
+        <string>Gui.Form.GsGridControl1.Create(GsGridControl)</string>
+        <string>Gui.Form.GsGridControl1.Size(6975,3075)</string>
+        <string>Gui.Form.GsGridControl1.Position(240,195)</string>
+        <string>Gui.Form.GsGridControl1.Event(CellValueChanged,GsGridControl1_CellValueChanged)</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string />
+        <string>'This project will allow the user to set a state to a Sales Territory. The Sales Territory is the sales Person. From a Custom menu item the user will be able to set a state to a Sales Territory. The Sales Territory is a Sales Person.</string>
+        <string>'Programmer: WAW</string>
+        <string>'date: 5/15/17</string>
+        <string />
+        <string>'open connection</string>
+        <string>F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser, V.Ambient.PPass)</string>
+        <string />
+        <string>'call the state maint sub</string>
+        <string>f.Intrinsic.Control.CallSub(statemaint)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Unload.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Unload_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'closing connection and ending program</string>
+        <string>F.ODBC.Connection!conx.Close</string>
+        <string>f.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Unload_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Unload.End</string>
+        <string />
+        <string>Program.Sub.StateMaint.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("StateMaint_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.ssql.Declare(String)</string>
+        <string>v.Local.ssalessql.Declare(String)</string>
+        <string>v.Local.i.Declare(long)</string>
+        <string>v.Local.sstates.Declare(String)</string>
+        <string />
+        <string>'query the custom table for data</string>
+        <string>f.Intrinsic.String.Build("Select * from GCG_4519_STATES where SALESPERSON &lt;&gt; '{0}'","",v.Local.ssql)</string>
+        <string>F.ODBC.Connection!conx.OpenRecordsetRO("rst",V.Local.sSql)</string>
+        <string>'if data is found create the datatable from the data found</string>
+        <string>f.Intrinsic.Control.If(v.ODBC.conx!rst.EOF,=,false)</string>
+        <string>	f.Data.DataTable.CreateFromSQL("STATES","conx",v.Local.ssql,true)</string>
+        <string>f.Intrinsic.Control.Else</string>
+        <string>	'otherwise query the salesperson table and add the states column</string>
+        <string>	f.Intrinsic.String.Build("Select SALESPERSON_CODE, SALESPERSON from V_SALESPEOPLE where SALESPERSON &lt;&gt; '{0}'","",v.Local.ssalessql)</string>
+        <string>	f.Data.DataTable.CreateFromSQL("STATES","conx",v.Local.ssalessql,True)</string>
+        <string>	f.Data.DataTable.AddColumn("STATES","STATE","string")</string>
+        <string>f.Intrinsic.Control.EndIf</string>
+        <string>F.ODBC.conx!rst.Close</string>
+        <string />
+        <string>f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)</string>
+        <string>	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE.fieldvaltrim,"*!*",",",v.Local.sstates)</string>
+        <string>	f.Data.DataTable.SetValue("STATES",v.Local.i,"State",v.Local.sstates)</string>
+        <string>f.Intrinsic.Control.Next(v.Local.i)</string>
+        <string />
+        <string>'create the dataview</string>
+        <string>f.Data.DataView.Create("STATES","STATES")</string>
+        <string>gui.Form.GsGridControl1.AddGridviewFromDataview("STATES","STATES","STATES")</string>
+        <string />
+        <string>'set the gridview and column properties</string>
+        <string>gui.Form.GsGridControl1.SetGridviewProperty("STATES","Editable",True)</string>
+        <string>gui.Form.GsGridControl1.SetGridviewProperty("STATES","ReadOnly",False)</string>
+        <string />
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","Caption","Code")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","HeaderFontBold",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","ReadOnly",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","AllowEdit",False)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","MaxWidth","45")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","MinWidth","45")</string>
+        <string />
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","Caption","Salesperson")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","HeaderFontBold",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","ReadOnly",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","AllowEdit",False)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","MaxWidth","150")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","MinWidth","150")</string>
+        <string />
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","Caption","State")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","HeaderFontBold",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","ReadOnly",False)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","AllowEdit",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","MaxWidth","250")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","MinWidth","250")</string>
+        <string />
+        <string>'make STATES the mainview</string>
+        <string>gui.Form.GsGridControl1.MainView("STATES")</string>
+        <string />
+        <string>'display the form</string>
+        <string>gui.Form..Visible(true)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("StateMaint_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.StateMaint.End</string>
+        <string />
+        <string>Program.Sub.GsGridControl1_CellValueChanged.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("StateMaint_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>v.Local.irow.Declare(long)</string>
+        <string>v.Local.ssql.Declare(string)</string>
+        <string>v.Local.smap.Declare(string)</string>
+        <string>v.Local.i.Declare(long)</string>
+        <string>v.Local.sstates.Declare(String)</string>
+        <string>v.Local.irow.Set(v.Args.rowindex)</string>
+        <string />
+        <string>'loop through and remove the comma to save</string>
+        <string>f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)</string>
+        <string>	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE.fieldvaltrim,",","*!*",v.Local.sstates)</string>
+        <string>	f.Data.DataTable.SetValue("STATES",v.Local.i,"State",v.Local.sstates)</string>
+        <string>f.Intrinsic.Control.Next(v.Local.i)</string>
+        <string />
+        <string>'update the user fields from the quote</string>
+        <string>v.Local.smap.Set("SALESPERSON_CODE@!@SALESPERSON_CODE*!*SALESPERSON@!@SALESPERSON*!*STATE@!@STATE")</string>
+        <string>F.Data.DataTable.SaveToDB("STATES", "conx", "GCG_4519_STATES", "SALESPERSON_CODE*!*SALESPERSON", 256, V.Local.sMap)</string>
+        <string />
+        <string>'loop through and replace the *!* with a comma</string>
+        <string>f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)</string>
+        <string>	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE.fieldvaltrim,"*!*",",",v.Local.sstates)</string>
+        <string>	f.Data.DataTable.SetValue("STATES",v.Local.i,"State",v.Local.sstates)</string>
+        <string>f.Intrinsic.Control.Next(v.Local.i)</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("StateMaint_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	f.Intrinsic.Control.CallSub(unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.GsGridControl1_CellValueChanged.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$GCG_4159_States.g2u$}$WAW$}$5/15/2017 2:04:23 PM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>98</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>15</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>17</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>18</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>20</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>47</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>49</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>70</Y>
+        </EndPoint>
+        <Text>Program.Sub.Unload</Text>
+        <DisplayText>Program.Sub.Unload</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>72</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>146</Y>
+        </EndPoint>
+        <Text>Program.Sub.StateMaint</Text>
+        <DisplayText>Program.Sub.StateMaint</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>148</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>186</Y>
+        </EndPoint>
+        <Text>Program.Sub.GsGridControl1_CellValueChanged</Text>
+        <DisplayText>Program.Sub.GsGridControl1_CellValueChanged</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>188</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>190</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
