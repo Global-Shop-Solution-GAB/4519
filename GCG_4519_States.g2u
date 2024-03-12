@@ -1,0 +1,203 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Caption("Sales Territory")
+Gui.Form..Size(7635,4050)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Sizeable(False)
+Gui.Form..Event(UnLoad,Unload)
+Gui.Form.GsGridControl1.Create(GsGridControl)
+Gui.Form.GsGridControl1.Size(6975,3075)
+Gui.Form.GsGridControl1.Position(240,195)
+Gui.Form.GsGridControl1.Event(CellValueChanged,GsGridControl1_CellValueChanged)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+'This project will allow the user to set a state to a Sales Territory. The Sales Territory is the sales Person. From a Custom menu item the user will be able to set a state to a Sales Territory. The Sales Territory is a Sales Person.
+'Programmer: WAW
+'date: 5/15/17
+
+'open connection
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser, V.Ambient.PPass)
+
+'call the state maint sub
+f.Intrinsic.Control.CallSub(statemaint)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'closing connection and ending program
+F.ODBC.Connection!conx.Close
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.StateMaint.Start
+F.Intrinsic.Control.SetErrorHandler("StateMaint_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.ssql.Declare(String)
+v.Local.ssalessql.Declare(String)
+v.Local.i.Declare(long)
+v.Local.sRet.Declare(String)
+
+'query the custom table for data
+f.Intrinsic.String.Build("Select * from GCG_4519_STATES where SALESPERSON <> '{0}'","",v.Local.ssql)
+F.ODBC.Connection!conx.OpenRecordsetRW("rst",V.Local.sSql)
+'if data is found create the datatable from the data found
+f.Intrinsic.Control.If(v.ODBC.conx!rst.EOF,=,false)
+	f.Data.DataTable.CreateFromSQL("STATES","conx",v.Local.ssql,true)
+f.Intrinsic.Control.Else
+	'otherwise query the salesperson table and add the states column
+	f.Intrinsic.String.Build("Select SALESPERSON_CODE, SALESPERSON from V_SALESPEOPLE where SALESPERSON <> '{0}'","",v.Local.ssalessql)
+	f.Data.DataTable.CreateFromSQL("STATES","conx",v.Local.ssalessql,True)
+	f.Data.DataTable.AddColumn("STATES","STATE","string")
+f.Intrinsic.Control.EndIf
+F.ODBC.conx!rst.Close
+
+f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)
+	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE.fieldvaltrim,"*!*",",",v.Local.sRet)
+	f.Data.DataTable.SetValue("STATES",v.Local.i,"State",v.Local.sRet)
+f.Intrinsic.Control.Next(v.Local.i)
+
+'create the dataview
+f.Data.DataView.Create("STATES","STATES")
+gui.Form.GsGridControl1.AddGridviewFromDataview("STATES","STATES","STATES")
+
+'set the gridview and column properties
+gui.Form.GsGridControl1.SetGridviewProperty("STATES","Editable",True)
+gui.Form.GsGridControl1.SetGridviewProperty("STATES","ReadOnly",False)
+
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","Caption","Code")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","HeaderFontBold",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","ReadOnly",False)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","AllowEdit",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","MaxWidth","45")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON_CODE","MinWidth","45")
+
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","Caption","Salesperson")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","HeaderFontBold",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","ReadOnly",False)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","AllowEdit",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","MaxWidth","150")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","SALESPERSON","MinWidth","150")
+
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","Caption","State")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","HeaderFontBold",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","ReadOnly",False)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","AllowEdit",True)
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","MaxWidth","250")
+gui.Form.GsGridControl1.SetColumnProperty("STATES","STATE","MinWidth","250")
+
+'make STATES the mainview
+gui.Form.GsGridControl1.MainView("STATES")
+
+'display the form
+gui.Form..Visible(true)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("StateMaint_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.StateMaint.End
+
+Program.Sub.GsGridControl1_CellValueChanged.Start
+F.Intrinsic.Control.SetErrorHandler("StateMaint_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.smap.Declare(string)
+v.Local.i.Declare(long)
+v.Local.sRet.Declare(String)
+
+'loop through and format each field as needed
+f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)
+	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE!fieldvaltrim,",","*!*",v.Local.sRet)
+	f.Data.DataTable.SetValue("STATES",v.Local.i,"STATE",v.Local.sRet)
+	
+	F.Intrinsic.String.Left(V.DataTable.STATES(V.Local.i).SALESPERSON_CODE!FieldVal,4,V.Local.sRet)
+	F.Intrinsic.String.RPad(V.Local.sRet," ",4,V.Local.sRet)
+	F.Data.DataTable.SetValue("STATES",V.Local.i,"SALESPERSON_CODE",V.Local.sRet)
+	
+	F.Intrinsic.String.Left(V.DataTable.STATES(V.Local.i).SALESPERSON!FieldVal,30,V.Local.sRet)
+	F.Intrinsic.String.RPad(V.Local.sRet," ",30,V.Local.sRet)
+	F.Data.DataTable.SetValue("STATES",V.Local.i,"SALESPERSON",V.Local.sRet)
+f.Intrinsic.Control.Next(v.Local.i)
+
+'update the user fields from the quote
+v.Local.smap.Set("SALESPERSON_CODE@!@SALESPERSON_CODE*!*SALESPERSON@!@SALESPERSON*!*STATE@!@STATE")
+
+'Customer needs to be able to re-write any column in the datatable meaning that we can't use the F.Data.DataTable.SaveToDB function without
+'creating new rows instead of modifying existing rows. Here we run a DataTable SaveToDB to verify that it will save properly, then we delete
+'all data from the table and save again to have the correct data (doing it this way prevents the data from being deleted from the table if the save
+'is going to fail).
+F.Data.DataTable.SaveToDB("STATES", "conx", "GCG_4519_STATES", v.DataTable.STATES.FieldNames, 256, V.Local.sMap)
+F.ODBC.Connection!conx.Execute("DELETE FROM GCG_4519_STATES")
+F.Data.DataTable.SaveToDB("STATES", "conx", "GCG_4519_STATES", v.DataTable.STATES.FieldNames, 256, V.Local.sMap)
+
+'loop through and replace the *!* with a comma
+f.Intrinsic.Control.For(v.Local.i,0,v.dataTable.STATES.RowCount--,1)
+	f.Intrinsic.String.Replace(v.DataTable.STATES(v.Local.i).STATE.fieldvaltrim,"*!*",",",v.Local.sRet)
+	f.Data.DataTable.SetValue("STATES",v.Local.i,"State",v.Local.sRet)
+f.Intrinsic.Control.Next(v.Local.i)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("StateMaint_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4519_States.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.CallSub(unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.GsGridControl1_CellValueChanged.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4159_States.g2u$}$WAW$}$5/15/2017 2:04:23 PM$}$False
+Program.Sub.Comments.End
